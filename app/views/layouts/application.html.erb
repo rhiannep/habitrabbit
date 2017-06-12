@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Habitrabbit</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Habit Rabbit</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Habit Rabbit</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= current_user.email %></li>
+    </ul>
+  </nav>
+
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

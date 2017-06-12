@@ -1,0 +1,4 @@
+<p>I'm trying to</p>
+<% @habits.each do |habit|%>
+<%= link_to habit.name, habit_path(habit), class: "btn btn-primary" %>
+<% end %>
