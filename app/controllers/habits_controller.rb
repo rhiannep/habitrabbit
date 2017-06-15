@@ -7,6 +7,10 @@ class HabitsController < ApplicationController
     def show
       @habits = current_user.habits
       @habit = @habits.find(params[:id])
+      best_streak = @habit.streaks.order(:days).last
+      current_streak = @habit.streaks.find_by(end: Time.zone.now.to_date)
+      @best_streak_days = best_streak ? best_streak.days : 0;
+      @current_streak_days = current_streak ? current_streak.days : 0;
     end
 
     def create
