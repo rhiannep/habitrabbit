@@ -10,16 +10,33 @@
 
 <body>
   <nav class="navbar navbar-default">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Habit Rabbit</a>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Habit Rabbit</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if(user_signed_in?) then %>
+        <li><p class="navbar-text"><%= current_user.email %></p></li>
+        <% end %>
+      </ul>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= current_user.email %></li>
-    </ul>
   </nav>
 
-  <div class="container">
-    <%= yield %>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="container">
+        <h5>I'm trying to<h5>
+      </div>
+
+      <ul class="nav nav-pills nav-stacked">
+        <% @habits.each do |habit|%>
+        <li><%= link_to habit.name, habit_path(habit)%></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
