@@ -16,7 +16,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if(user_signed_in?) then %>
-        <li><p class="navbar-text"><%= current_user.email %></p></li>
+        <li><%= link_to current_user.email, destroy_user_session_path, method: :delete%></p></li>
         <% end %>
       </ul>
     </div>
