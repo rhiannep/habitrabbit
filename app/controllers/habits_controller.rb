@@ -4,6 +4,7 @@ class HabitsController < ApplicationController
       @habits = current_user.habits
     end
 
+    before_action :authenticate_user!
     def show
       @habits = current_user.habits
       @habit = @habits.find(params[:id])
